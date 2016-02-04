@@ -1,0 +1,45 @@
+#game {
+    position: relative;
+    width: 400px;
+    height: 200px;
+}
+
+#playground {
+    position: absolute;
+    background: url(../images/playground.png);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#ball {
+    background: #c93e13;
+    position: absolute;
+    height: 20px;
+    width: 40px;
+    border-radius: 40px/20px;
+    top: 70px;
+    left: 100px;
+}
+
+.paddle {
+    background-size: contain;
+    height: 70px;
+    width: 30px;
+    position: absolute;
+    top: 70px;
+}
+
+#paddleA {
+    left: 50px;
+    background-image: url(../images/player-left.png);
+}
+
+#paddleB {
+    right: 50px;
+    background-image: url(../images/player.png);
+}
