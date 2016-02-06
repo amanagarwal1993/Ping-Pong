@@ -15,7 +15,17 @@
         },
         
         playground: {
-            offsetTop: $("#playground").offset().top
+            offsetTop: $("#playground").offset().top,
+            height: parseInt($("#playground").height());
+            width: parseInt($("#playground").width());
+        },
+        
+        ball: {
+            speed: 5,
+            x: 150,
+            y: 100,
+            directionX: 1,
+            directionY: 1
         }
     };
     
@@ -45,6 +55,23 @@
         //requestAnimationFrame basically makes a recursive loop.
         window.requestAnimationFrame(render);
     };
+    
+    function gameloop() {
+        moveBall();
+    };
+    
+    function ballHitsTopBottom() {
+        var y = pingpong.ball.y + pingpong.ball.speed*pingpong.ball.directionY;
+        return y < 0 || y > pingpong.playground.height;
+    };
+    
+    function ballHitsRightWall() {
+        return pingpong.ball.x + pingpong.ball.speed * pingpong.ball.directionX > pingpong.playground.width;
+    };
+    
+    function ballHitsLeftWall() {
+        return pingpong.ball.x + pingpong.ball.speed * pingpong.ball.directionX < 0;
+    }
     
     function init() {
         //initiate rendering loop
